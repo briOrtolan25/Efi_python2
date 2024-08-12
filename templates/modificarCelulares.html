@@ -1,0 +1,41 @@
+{% extends 'templateBase.html' %}
+
+{% block title %}Modificar Celulares {% endblock %}
+
+{% block content %}
+<h4>Modificacion</h4>
+<form action="" method="post">
+    
+    <div class="input-group mb-2">
+        <input type="text" class="form-control mb-2" placeholder="Nombre del modelo" name="modelo" value="{{e}}" required>
+        <!-- </input> -->
+    </div>
+    
+
+    <input type="number" class="form-control mb-2" placeholder="Precio" name="precio" required>
+    <input type="number" max="2024" min="2000" class="form-control mb-2" placeholder="Año de fabricación"
+        name="yearFabricacion" required>
+
+    <div class="input-group mb-2">
+        <select name="marca" id="marca" class="form-control" required>
+            {% for marca in marcas %}
+            <option value="{{marca.id}}">{{marca.nombre}}</option>
+            {% endfor %}
+        </select>
+        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+            data-bs-target="#agregarMarcaModal">Crear otra marca</button>
+    </div>
+
+    <div class="input-group mb-2">
+        <select name="tipo" id="tipo" class="form-control" required>
+            {% for tipo in tipos %}
+            <option value="{{tipo.id}}">{{tipo.nombre}}</option>
+            {% endfor %}
+        </select>
+        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+            data-bs-target="#agregarTipoModal">Crear otra categoría</button>
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+</form>
+{% endblock %}

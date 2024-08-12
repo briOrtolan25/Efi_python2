@@ -1,0 +1,22 @@
+{% extends 'templateBase.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h4>Listado de celulares del modelo: {{modelo}}</h4>
+            <form action="" method="post">
+                <input type="text" class="form-control mb-2" placeholder="Nombre del modelo" name="nombre">
+                <button type="submit" class="btn btn-success">Guardar</button>
+            </form>
+        </div>
+        <div class="col-6">
+            <h4>Listado de tipos</h4>
+            {% for celular in celulares %}
+                <li> Celular:{{celular.modelo}} <br> Marca:{{celular.marca}} <br> Fabricado en:{{celular.yearFabricacion}} <br> valor:${{celular.precio}} <br>  Categoria:{{celular.tipo}}</li>
+            {% endfor %}
+        </div>
+    </div>
+</div>    
+    
+{% endblock %}

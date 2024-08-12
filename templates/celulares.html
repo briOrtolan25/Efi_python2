@@ -1,0 +1,103 @@
+{% extends 'templateBase.html' %}
+
+{% block title %}Celulares {% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <!-- formulario -->
+      <h4 class="text-center">Ingresar un nuevo celular al sistema para la venta</h4>
+      <form action="" method="post">
+        <!-- modelo -->
+        <div class="input-group mb-2">
+          <select type="text" class="form-control" placeholder="Nombre del modelo" name="modelo" required>
+            {% for e in celulares %}
+            <option value="{{e.modelo}}">{{e.modelo}}</option>
+            {% endfor %}
+          </select>
+          <a href="/modelo_list"><button type="button" class="btn btn-outline-secondary">Agregar otro modelo</button></a>
+        </div>
+
+        <!-- precio -->
+        <input type="number" class="form-control mb-2" placeholder="Precio" name="precio" required>
+
+        <!-- año de fabricacion -->
+        <input type="number" max="2024" min="2000" class="form-control mb-2" placeholder="Año de fabricación"
+          name="yearFabricacion" required>
+
+        <!-- marca -->
+        <div class="input-group mb-2">
+          <select name="marca" id="marca" class="form-control" required>
+            {% for marca in marcas %}
+            <option value="{{marca.id}}">{{marca.nombre}}</option>
+            {% endfor %}
+          </select>
+          <a href="/marca_list"><button type="button" class="btn btn-outline-secondary">Agregar otra marca</button></a>
+        </div>
+
+        <!-- tipo -->
+        <div class="input-group mb-2">
+          <select name="tipo" id="tipo" class="form-control" required>
+            {% for tipo in tipos %}
+            <option value="{{tipo.id}}">{{tipo.nombre}}</option>
+            {% endfor %}
+          </select>
+          <a href="/tipo_list"><button type="button" class="btn btn-outline-secondary">Agregar otra categoría</button></a>
+        </div>
+
+        <!-- fabricante -->
+        <div class="input-group mb-2">
+          <select name="fabricante" id="fabricante" class="form-control" required>
+            {% for f in fabricantes %}
+            <option value="{{f.id}}">{{f.nombre}}</option>
+            {% endfor %}
+          </select>
+          <a href="/fabricante_list"><button type="button" class="btn btn-outline-secondary">Agregar otro fabricante</button></a>
+        </div>
+
+        <!-- proveedor -->
+        <div class="input-group mb-2">
+          <select name="proveedor" id="proveedor" class="form-control" required>
+            {% for p in proveedores %}
+            <option value="{{p.id}}">{{p.nombre}}</option>
+            {% endfor %}
+          </select>
+          <a href="/proveedor_list"><button type="button" class="btn btn-outline-secondary">Agregar otro proveedor</button></a>
+        </div>
+
+        <!-- caracteristica -->
+        <div class="input-group mb-2">
+          <input type="text" name="caracteristica" id="caracteristica" placeholder="Mencionar principales caracteristicas" class="form-control" required>
+        </div>
+
+        <!-- stock -->
+        <input type="number" class="form-control mb-2" placeholder="Cantidad" name="stock" required>
+
+        <!-- accesorios -->
+        <div class="input-group mb-2">
+          <input type="text" name="accesorio" id="accesorio" placeholder="Mencionar accesorios incluidos" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar</button>
+      </form>
+    </div>
+    <!-- listado -->
+    <div class="col-12">
+      <h4 class="text-center">Listado de celulares a la venta</h4>
+      <ul>
+        {% for celular in celulares %}
+        <li>
+          {{celular.modelo}} - ${{celular.precio}} - {{celular.yearFabricacion}} - {{celular.marca}} - {{celular.tipo}}
+          - {{celular.fabricante}} - {{celular.caracteristica}} - {{celular.stock}} - {{celular.proveedor}} -
+          {{celular.accesorio}}
+          <a href="/modificar/{{celular.id}}/modificar"><button>Modificar</button></a>
+          <a href=""><button>Eliminar</button></a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

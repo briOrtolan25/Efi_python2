@@ -1,0 +1,24 @@
+{% extends 'templateBase.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h4>Crear nuevo proveedor</h4>
+      <form action="" method="post">
+        <input type="text" class="form-control mb-2" placeholder="Nombre del modelo" name="nombre">
+        <button type="submit" class="btn btn-success">Guardar</button>
+      </form>
+    </div>
+    <div class="col-6">
+      <h4>Listado de proveedores</h4>
+      {% for proveedor in proveedorFront %}
+      <li>
+        <a href="/proveedor/{{proveedor.id}}/celulares">{{proveedor.nombre}}</a> <a href="/proveedor/{{proveedor.id}}/editar">Editar</a>
+      </li>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

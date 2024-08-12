@@ -1,0 +1,67 @@
+# Entorno virtual
+env/
+venv/
+ENV/
+VENV/
+
+# Archivos y carpetas de Python
+*.pyc
+__pycache__/
+
+# Archivos de configuración del entorno
+.env
+*.env
+
+# Archivos de logs
+*.log
+
+# Configuración específica del IDE/editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Dependencias instaladas
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+bin/
+var/
+wheels/
+sdist/
+develop-eggs/
+.installed.cfg
+
+# Archivos de paquetes
+*.egg
+*.whl
+
+# Configuración de Docker
+docker-compose.override.yml
+
+# Cartera de migraciones de la base de datos
+migrations/
+
+# Archivos de bases de datos locales
+*.sqlite3
+
+# Archivos de Jupyter Notebook
+.ipynb_checkpoints/
+
+# Archivos de distribución
+dist/
+build/
+*.egg-info/
+
+# Archivos generados por cobertura de pruebas
+htmlcov/
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+
+# Otros
+.DS_Store
