@@ -1,0 +1,31 @@
+# Versión de Docker Compose
+version: '3'
+
+# Lista de servicios
+services:
+  flask_app:  # Servicio de la aplicación Flask
+    build:  # Lista de parámetros
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5005:5005"  # Puerto que expone el contenedor: puerto del host donde escuchamos
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    container_name: flask_app_a
+
+  mysql_db:  # Servicio de MySQL
+    image: mysql:5.7  # Usa la imagen oficial de MySQL 5.7 desde Docker Hub
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # Establece la contraseña root para MySQL
+      MYSQL_DATABASE: sql_alchemy_a  # Crea una base de datos llamada 'sql_alchemy_a'
+      MYSQL_USER: db_user  # Crea un usuario de MySQL 'db_user'
+      MYSQL_PASSWORD: root  # Establece la contraseña para 'db_user'
+    volumes:
+      - ./.data/db:/var/lib/mysql
+    ports:
+      - "3307:3306"  # Mapea el puerto 3306 del host al puerto 3306 del contenedor MySQL
+    restart: always  # Reinicia el contenedor MySQL si se detiene o falla
+    container_name: mysql_database
+

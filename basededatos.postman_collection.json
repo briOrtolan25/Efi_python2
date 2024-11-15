@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "d2c9589d-6fc4-4bfe-8af9-fc4dc6c21cdc",
+		"name": "basededatos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39691246"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5000/users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczMTYxNzE1OSwianRpIjoiMDg3Zjg0ZDUtZGI1MC00NDNkLTk3MjUtNDkxMTYzYWZmY2JlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImFudG8yIiwibmJmIjoxNzMxNjE3MTU5LCJleHAiOjE3MzE2MTc3NTksImFkbWluaXN0cmFkb3IiOmZhbHNlfQ.Uk_2eQnCmM5wOAwUSaDyXhpbl8-T0fSdUK7873tA9Jg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usuario\":\"anto2\",\n    \"contrasenia\":\"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "anto",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/celulares_list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczMTYxNzE1OSwianRpIjoiMDg3Zjg0ZDUtZGI1MC00NDNkLTk3MjUtNDkxMTYzYWZmY2JlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImFudG8yIiwibmJmIjoxNzMxNjE3MTU5LCJleHAiOjE3MzE2MTc3NTksImFkbWluaXN0cmFkb3IiOmZhbHNlfQ.Uk_2eQnCmM5wOAwUSaDyXhpbl8-T0fSdUK7873tA9JgeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczMTYyNjYxMiwianRpIjoiNjFhMTcxMTAtZjhmZC00YjZhLTg5ZmEtMDU0NTAzODk2NjIxIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImFudG8yIiwibmJmIjoxNzMxNjI2NjEyLCJleHAiOjE3MzE2MjcyMTIsImFkbWluaXN0cmFkb3IiOmZhbHNlfQ.gMG6Q5JQzWFKl-wDumNMw8BjB4Y2qUA02ljhS2H-tII",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"modelo\":\"S Ultra\",\n    \"anio_fabricacion\":2022,\n    \"precio\":2000,\n    \"marca_id\": 1,\n    \"tipo_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/celulares_list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"celulares_list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/celulares_list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/celulares_list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"celulares_list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

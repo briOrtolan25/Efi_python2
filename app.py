@@ -1,6 +1,14 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask, render_template, redirect, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_jwt_extended import JWTManager
+from flask_marshmallow import Marshmallow
+
+
+
+
 
 # Instancia de Flask
 app = Flask(__name__)
@@ -8,12 +16,21 @@ app = Flask(__name__)
 # Configuración de SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/celulares1'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
+# Inicialización de extensiones
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+jwt = JWTManager(app)
+ma = Marshmallow(app)
 
 # Importa los modelos después de la inicialización de SQLAlchemy para evitar importaciones circulares
 from models import Marca, Equipo, Celulares, Fabricantes, Caracteristica, Stock, Proveedor, Accesorios
+
+from views import register_bp
+register_bp(app)
+
+
 
 @app.route("/")
 def home():
